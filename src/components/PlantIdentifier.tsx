@@ -9,6 +9,7 @@ import { Camera, TreePine, Search, Upload, FileUp } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useGeminiApi } from '@/hooks/useGeminiApi';
 import { isMobileDevice } from '@/utils/deviceDetection';
+import { saveIdentification } from '@/lib/supabaseClient';
 
 interface IdentificationResult {
   name: string;
@@ -45,14 +46,17 @@ const PlantIdentifier = () => {
     }
   }, []);
 
-  // Use the provided API key
+  // Ensure any env-configured key is loaded on mount (no hardcoded keys)
   useEffect(() => {
     try {
-      const apiKey = "AIzaSyC-h15bSl2_SJGn17-LMqTpbVCj1S_AebQ";
-      localStorage.setItem('gemini_api_key', apiKey);
-      setGeminiApiKey(apiKey);
+      const envKey = (import.meta as any).env?.VITE_GEMINI_API_KEY as string | undefined;
+      const savedKey = localStorage.getItem('gemini_api_key');
+      const effectiveKey = savedKey || envKey;
+      if (effectiveKey) {
+        setGeminiApiKey(effectiveKey);
+      }
     } catch (error) {
-      console.error('Error setting Gemini API key:', error);
+      console.error('Error initializing Gemini API key:', error);
       toast({
         title: "Configuration Error",
         description: "There was an error configuring the plant identification service. Some features may not work correctly.",
@@ -150,6 +154,24 @@ const PlantIdentifier = () => {
     try {
       const result = await identifyPlantWithText(textDescription);
       setResult(result);
+      try {
+        await saveIdentification({
+          user_input_type: 'text',
+          user_text: textDescription,
+          result_name: result.name,
+          result_scientific: result.scientificName,
+          result_confidence: result.confidence,
+          result_native_region: result.nativeRegion || null,
+          result_common_uses: result.commonUses || null,
+          result_light: result.lightRequirements || null,
+          result_watering: result.wateringNeeds || null,
+          result_temperature: result.temperatureRange || null,
+          result_additional_tips: result.additionalTips || null,
+          result_care_info: result.careInfo || null,
+        });
+      } catch (persistErr) {
+        console.error('Failed to save identification (text):', persistErr);
+      }
     } catch (error) {
       console.error(error);
       toast({
@@ -179,6 +201,25 @@ const PlantIdentifier = () => {
       // Keep the image preview in the component state
       // No need to modify the result object since we're using the imagePreview state
       setResult(result);
+      try {
+        await saveIdentification({
+          user_input_type: 'image',
+          user_text: null,
+          image_mime: image.type,
+          result_name: result.name,
+          result_scientific: result.scientificName,
+          result_confidence: result.confidence,
+          result_native_region: result.nativeRegion || null,
+          result_common_uses: result.commonUses || null,
+          result_light: result.lightRequirements || null,
+          result_watering: result.wateringNeeds || null,
+          result_temperature: result.temperatureRange || null,
+          result_additional_tips: result.additionalTips || null,
+          result_care_info: result.careInfo || null,
+        });
+      } catch (persistErr) {
+        console.error('Failed to save identification (image):', persistErr);
+      }
     } catch (error) {
       console.error(error);
       toast({

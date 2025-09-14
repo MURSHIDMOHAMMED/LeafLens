@@ -93,13 +93,13 @@ const AboutPage = () => {
               <div className="h-48 overflow-hidden relative">
                 <img
                   src="/images/about/team-member-1.jpg"
-                  alt="Jane Doe - Founder & Botanist"
+                  alt="Muhammed AP - Founder & Botanist"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
               <div className="p-6 text-center">
-                <h3 className="font-semibold mb-1 text-leaflens-green-dark">Jane Doe</h3>
+                <h3 className="font-semibold mb-1 text-leaflens-green-dark">Muhammed AP</h3>
                 <p className="text-sm text-leaflens-green mb-3">Founder & Botanist</p>
                 <p className="text-sm text-muted-foreground">
                   Plant enthusiast with over 10 years of experience in botanical research.
@@ -111,13 +111,13 @@ const AboutPage = () => {
               <div className="h-48 overflow-hidden relative">
                 <img
                   src="/images/about/team-member-2.jpg"
-                  alt="John Smith - CTO & AI Specialist"
+                  alt="Muhammed Midlaj - CTO & AI Specialist"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
               <div className="p-6 text-center">
-                <h3 className="font-semibold mb-1 text-leaflens-green-dark">John Smith</h3>
+                <h3 className="font-semibold mb-1 text-leaflens-green-dark">Muhammed Midlaj</h3>
                 <p className="text-sm text-leaflens-green mb-3">CTO & AI Specialist</p>
                 <p className="text-sm text-muted-foreground">
                   Expert in machine learning and computer vision for plant identification.
@@ -129,13 +129,13 @@ const AboutPage = () => {
               <div className="h-48 overflow-hidden relative">
                 <img
                   src="/images/about/team-member-3.jpg"
-                  alt="Maria Garcia - Plant Care Specialist"
+                  alt="Nihal OT - Plant Care Specialist"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
               <div className="p-6 text-center">
-                <h3 className="font-semibold mb-1 text-leaflens-green-dark">Maria Garcia</h3>
+                <h3 className="font-semibold mb-1 text-leaflens-green-dark">Nihal OT</h3>
                 <p className="text-sm text-leaflens-green mb-3">Plant Care Specialist</p>
                 <p className="text-sm text-muted-foreground">
                   Certified horticulturist who develops our plant care recommendations.
@@ -147,13 +147,13 @@ const AboutPage = () => {
               <div className="h-48 overflow-hidden relative">
                 <img
                   src="/images/about/team-member-4.jpg"
-                  alt="James Wilson - UX Designer"
+                  alt="Ijlal & Murshid - UX Designer"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
               <div className="p-6 text-center">
-                <h3 className="font-semibold mb-1 text-leaflens-green-dark">James Wilson</h3>
+                <h3 className="font-semibold mb-1 text-leaflens-green-dark">Ijlal & Murshid</h3>
                 <p className="text-sm text-leaflens-green mb-3">UX Designer</p>
                 <p className="text-sm text-muted-foreground">
                   Creates the intuitive user experience that makes LeafLens easy to use.
