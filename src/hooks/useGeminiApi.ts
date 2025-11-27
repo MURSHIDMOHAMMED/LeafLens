@@ -210,7 +210,7 @@ export const useGeminiApi = () => {
     while (attempt < maxAttempts) {
       let response: Response;
       try {
-        response = await fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${effectiveKey}`, {
+        response = await fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${effectiveKey}`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(body)
