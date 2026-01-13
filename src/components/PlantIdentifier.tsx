@@ -10,6 +10,8 @@ import { useToast } from "@/hooks/use-toast";
 import { useGeminiApi } from '@/hooks/useGeminiApi';
 import { isMobileDevice } from '@/utils/deviceDetection';
 import { saveIdentification } from '@/lib/supabaseClient';
+import { getPlantCareData } from '@/lib/plantCareData';
+import LeafCareTips from './LeafCareTips';
 
 interface IdentificationResult {
   name: string;
@@ -358,6 +360,13 @@ const PlantIdentifier = () => {
             </div>
           </div>
         </div>
+
+        {/* Leaf Health & Care Tips Section */}
+        <LeafCareTips
+          {...getPlantCareData(result.name, result.scientificName)}
+          className="animate-fade-in"
+          style={{ animationDelay: '0.6s' }}
+        />
 
         <Button
           onClick={resetIdentification}
